@@ -9,13 +9,12 @@ sudo apt-get -y install qt4-dev-tools
 sudo apt-get -y install libatlas-base-dev
 
 # Need to get an older version of OpenCV because version 4 has errors
-pip3 install opencv-python==3.4.11.41
+pip3 install opencv-python
 
-# Get packages required for TensorFlow
-# Using the tflite_runtime packages available at https://www.tensorflow.org/lite/guide/python
-# Will change to just 'pip3 install tensorflow' once newer versions of TF are added to piwheels
+#https://www.tensorflow.org/lite/guide/python#install_tensorflow_lite_for_python
+pip3 install tflite-runtime
 
-#pip3 install tensorflow
+pip3 install python-dotenv
 
 version=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
 
@@ -38,3 +37,7 @@ fi
 if [ $version == "3.5" ]; then
 pip3 install https://github.com/google-coral/pycoral/releases/download/release-frogfish/tflite_runtime-2.5.0-cp35-cp35m-linux_armv7l.whl
 fi
+
+
+#To Run
+python TFLite_detection_stream.py --modeldir Sample_TFLite_model
