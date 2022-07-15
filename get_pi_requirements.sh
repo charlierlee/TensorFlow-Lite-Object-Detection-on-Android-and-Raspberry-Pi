@@ -40,4 +40,6 @@ fi
 
 
 #To Run
+cd /home/pi/tflite1
+source tflite1-env/bin/activate
 python TFLite_detection_stream.py --modeldir Sample_TFLite_model
